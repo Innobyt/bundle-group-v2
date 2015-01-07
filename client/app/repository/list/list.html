@@ -1,0 +1,36 @@
+<div ng-include="'../components/navbar/navbar.html'"></div>
+<header class="hero-unit" id="banner">
+	<div class="container">
+		<h1>Gamebundle Repository Listings</h1>
+	</div>
+</header>
+<div class="container">
+	<a class="btn btn-primary" ng-mousedown="csv.generate()" ng-href="{{ csv.link() }}" download="test.csv">Export to CSV</a>
+	<button ng-click="tableParams.sorting({})" class="btn btn-default pull-right">Clear sorting</button>
+	<button ng-click="tableParams.filter({})" class="btn btn-default pull-right">Clear filter</button>
+	<table ng-table="tableParams" show-filter="true" class="table" export-csv="csv">
+
+		<tr ng-repeat="gamebundle in $data">
+			<td data-title="'Game Bundle'" sortable="'_id'" filter="{ 'bundlename': 'text' }">
+				{{gamebundle.bundlename}}
+			</td>
+			<td data-title="'Unclaimed'" sortable="'udk'" filter="{ 'udk': 'text' }">
+				{{gamebundle.udk}}
+			</td>
+			<td data-title="'Claimed'" sortable="'rdk'" filter="{ 'rdk': 'text' }">
+				{{gamebundle.rdk}}
+			</td>
+			<td data-title="'View'">
+				<a class="btn btn-primary" href="/view/{{gamebundle._id}}">View</a>
+			</td>
+			<td data-title="'Update'">
+				<a class="btn btn-primary" href="/update/{{gamebundle._id}}">Update</a>
+			</td>
+		</tr>
+	</table>
+</div>
+<footer class="footer">
+  <div class="container">
+      <p><a href="http://innobyt.com">Innobyt Redemption Web Application</a></p>
+  </div>
+</footer>

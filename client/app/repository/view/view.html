@@ -1,0 +1,29 @@
+<div ng-include="'../components/navbar/navbar.html'"></div>
+<header class="hero-unit" id="banner">
+	<div class="container">
+		<h1>Available Keys for {{bundlename}} </h1>
+	</div>
+</header>
+<div class="container">
+	<pre><h3>Game List: <span ng-repeat="game in gamelist">{{game.gametitle}}, </span></h3></pre>
+		<h2>Redemption-Keys</h2>
+		<a class="btn btn-primary" ng-mousedown="csv.generate()" ng-href="{{ csv.link() }}" download="{{bundlename}}-unclaimed.csv">Export to CSV</a>
+		<a class="btn btn-primary" ui-sref="list">Back to list</a>
+		<table ng-table="tableParams" show-filter="true" class="table" export-csv="csv">
+			<tr ng-repeat="key in $data">
+				<td data-title="'Redemption-Keys'" filter="{ 'key': 'text' }">
+					{{key.key}}
+				</td>
+				<td data-title="'Unclaimed'" filter="{ 'status': 'text' }" sortable="'status'">
+					{{key.status}}
+				</td>
+			</tr>
+		</table>
+	</div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+      <p><a href="http://innobyt.com">Innobyt Redemption Web Application</a></p>
+  </div>
+</footer>

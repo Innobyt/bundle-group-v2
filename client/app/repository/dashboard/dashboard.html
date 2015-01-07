@@ -1,0 +1,62 @@
+<div ng-include="'../components/navbar/navbar.html'"></div>
+<header class="hero-unit" id="banner">
+	<div class="container">
+		<h1>Gamebundle Dashboard Listings</h1>
+	</div>
+</header>
+<div class="container">
+	<a class="btn btn-primary" ng-mousedown="csv.generate()" ng-href="{{ csv.link() }}" download="test.csv">Export to CSV</a>
+	<button ng-click="tableParams.sorting({})" class="btn btn-default pull-right">Clear sorting</button>
+	<button ng-click="tableParams.filter({})" class="btn btn-default pull-right">Clear filter</button>
+	<table ng-table="tableParams" show-filter="true" class="table" export-csv="csv">
+
+		<tr ng-repeat="gameredemption in $data">
+			<td data-title="'Gamebundlename'" sortable="'gamebundlename'" filter="{ 'gamebundlename': 'text' }"> 
+				{{gameredemption.gamebundlename}} 
+			</td>
+			<td data-title="'Redemptionkey'" sortable="'redemptionkey'" filter="{ 'redemptionkey': 'text' }"> 
+				{{gameredemption.redemptionkey}} 
+			</td>
+			<td data-title="'Usedstatus'" sortable="'usedstatus'" filter="{ 'usedstatus': 'text' }"> 
+				{{gameredemption.usedstatus}} 
+			</td>
+			<td data-title="'Gametitle'" sortable="'gametitle'" filter="{ 'gametitle': 'text' }"> 
+				{{gameredemption.gametitle}} 
+			</td>
+			<td data-title="'Firstname'" sortable="'firstname'" filter="{ 'firstname': 'text' }"> 
+				{{gameredemption.firstname}} 
+			</td>
+			<td data-title="'Timestamp'" sortable="'timestamp'" filter="{ 'timestamp': 'text' }"> 
+				{{gameredemption.timestamp}} 
+			</td>
+			<td data-title="'Lastname'" sortable="'lastname'" filter="{ 'lastname': 'text' }"> 
+				{{gameredemption.lastname}} 
+			</td>
+			<td data-title="'Browser'" sortable="'browser'" filter="{ 'browser': 'text' }"> 
+				{{gameredemption.browser}} 
+			</td>
+			<td data-title="'Userip'" sortable="'userip'" filter="{ 'userip': 'text' }"> 
+				{{gameredemption.userip}} 
+			</td>
+			<td data-title="'Email'" sortable="'email'" filter="{ 'email': 'text' }"> 
+				{{gameredemption.email}} 
+			</td>
+			<td data-title="'Cdkey'" sortable="'cdkey'" filter="{ 'cdkey': 'text' }"> 
+				{{gameredemption.cdkey}} 
+			</td>
+<!-- no implementation -->
+<!-- 			<td data-title="'View'">
+				<a class="btn btn-primary" href="/view/{{gameredemption._id}}">View</a>
+			</td> -->
+<!-- no implementation -->
+<!-- 			<td data-title="'Update'">
+				<a class="btn btn-primary" href="/update/{{gameredemption._id}}">Update</a>
+			</td> -->
+		</tr>
+	</table>
+</div>
+<footer class="footer">
+  <div class="container">
+      <p><a href="http://innobyt.com">Innobyt Redemption Web Application</a></p>
+  </div>
+</footer>

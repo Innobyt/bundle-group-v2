@@ -1,0 +1,37 @@
+<div ng-include="'../components/navbar/navbar.html'"></div>
+<header class="hero-unit" id="banner">
+	<div class="container">
+		<h1>Game Repository Update - {{oldData.bundlename}}</h1>
+	</div>
+</header>
+
+<div class="container">
+	<pre><h3>Game List: <span ng-repeat="game in oldData.gamelist">{{game.gametitle}} </span></h3></pre>
+	<form name="updateForm" novalidate ng-submit="updateForm.$valid && submit()">
+		<div class="form-group">
+			<label>Count - {{formData.count}}</label>
+			<input type="text" id="count" name="count" class="form-control" placeholder="" ng-model="formData.count" ng-pattern="/^[1-9][0-9]*$/" required>
+			<span class="text-warning" ng-show="updateForm.count.$error.pattern">Not a valid number!</span>
+			<span class="text-warning" ng-show="updateForm.count.$error.required">This field is required!</span>
+		</div>
+		<div class="form-group">
+			<label>Merchant Prefix - {{formData.merchant_prefix}}</label>
+			<input type="text" id="merchant_prefix" name="merchprefix" class="form-control" placeholder="Enter 5 Character Merchant Prefix Here" ng-model="formData.merchant_prefix" ng-pattern="/^\w{5}$/" required>
+			<span class="text-warning" ng-show="updateForm.merchprefix.$error.pattern">Not a valid Merchant Prefix! should contain only (0-9) (a-Z)</span>
+			<span class="text-warning" ng-show="updateForm.merchprefix.$error.required">This field is required!</span>
+		</div>
+		<div class="form-group">
+			<label>Threshold - {{formData.threshold}}</label>
+			<input type="text" id="threshold" name="threshold" class="form-control" placeholder="" ng-model="formData.threshold" ng-pattern="/^(0|[1-9][0-9]*)$/" required>
+			<span class="text-warning" ng-show="updateForm.threshold.$error.pattern">Not a valid number!</span>
+			<span class="text-warning" ng-show="updateForm.threshold.$error.required">This field is required!</span>
+		</div>
+		<button type="submit" class="btn btn-primary">Add</button>
+	</form>
+</div>
+
+<footer class="footer">
+  <div class="container">
+      <p><a href="http://innobyt.com">Innobyt Redemption Web Application</a></p>
+  </div>
+</footer>
