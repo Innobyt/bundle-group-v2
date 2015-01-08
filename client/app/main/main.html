@@ -4,23 +4,23 @@
 	</div>
 </header>
 <div class="container">
-	<form>
+	<form name="redeemForm" novalidate ng-submit="redeemForm.$valid && submit()">>
 		<div class="form-group">
 			<label>Your First Name</label>
-			<input type="text"  name="firstname" class="form-control" id="firstname" placeholder="JohnDoe">
+			<input type="text"  name="firstname" ng-model="formData.firstname" class="form-control" id="firstname" placeholder="JohnDoe">
 		</div>
 		<div class="form-group">
 			<label>Your Last Name</label>
-			<input type="text"  name="lastname" class="form-control" id="lastname" placeholder="JohnDoe">
+			<input type="text"  name="lastname" ng-model="formData.lastname" class="form-control" id="lastname" placeholder="JohnDoe">
 		</div>
 		<div class="form-group">
 			<label>Your Email Address</label>
-			<input type="email" name="email" class="form-control" id="email" placeholder="yourname@email.com">
+			<input type="email" name="email" ng-model="formData.email" class="form-control" id="email" placeholder="yourname@email.com">
 		</div>
 		<div class="form-group">
 			<label>Your Redemption Key</label>
-			<input type="text" name="redemptionkey" class="form-control" id="redemptionkey" placeholder="XXXXX-XXXXX-XXXXX-XXXXX-XXXXX">
+			<input type="text" name="redemptionkey" ng-model="formData.redemptionkey" class="form-control" id="redemptionkey" placeholder="XXXXX-XXXXX-XXXXX-XXXXX-XXXXX">
 		</div>
-		<button type="submit" class="btn btn-primary" ng-click="submit()">Redeem Now!</button>
+		<button type="submit" class="btn btn-primary">Redeem Now!</button>
 	</form>
 </div>
