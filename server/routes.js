@@ -9,9 +9,9 @@ var errors = require('./components/errors');
 module.exports = function(app) {
 
   // Insert routes below
-  app.use('/api/game-redemption', require('./api/game-redemption'));
+  app.use('/api/gameredemptions', require('./api/game-redemption'));
   app.use('/api/gamebundle-gen', require('./api/gamebundle-gen'));
-  app.use('/api/game-bundle', require('./api/game-bundle'));
+  app.use('/api/gamebundles', require('./api/game-bundle'));
   app.use('/api/users', require('./api/user'));
 
   app.use('/auth', require('./auth'));
