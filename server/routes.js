@@ -12,7 +12,6 @@ module.exports = function(app) {
   app.use('/api/game-redemption', require('./api/game-redemption'));
   app.use('/api/gamebundle-gen', require('./api/gamebundle-gen'));
   app.use('/api/game-bundle', require('./api/game-bundle'));
-  app.use('/api/things', require('./api/thing'));
   app.use('/api/users', require('./api/user'));
 
   app.use('/auth', require('./auth'));

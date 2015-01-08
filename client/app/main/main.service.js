@@ -7,12 +7,11 @@ angular
 mainService.$inject = ['$resource'];
 
 function mainService($resource) {
-	return $resource('/api/gameredemptions/:id', {}, {
+	return $resource('/api/gameredemptions/:id', {
+		id: '@_id'
+	}, {
 		update: {
-			method: 'PUT',
-			params: {
-				id: '@id'
-			}
+			method: 'PUT'
 		}
 	});
 }

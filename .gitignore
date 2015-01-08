@@ -1,0 +1,25 @@
+# Yeoman.gitignore
+/server/config/local.env.js
+client/bower_components
+bower_components/
+build/
+dist/
+public
+.idea
+.tmp
+
+# node.js
+logs
+*.log
+pids
+*.pid
+*.seed
+lib-cov
+coverage
+.grunt
+.lock-wscript
+build/Release
+node_modules
+
+# system files
+.DS_Store

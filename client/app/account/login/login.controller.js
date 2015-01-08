@@ -15,7 +15,7 @@ angular.module('gamebundleApp')
         })
         .then( function() {
           // Logged in, redirect to home
-          $location.path('/admin');
+          $location.path('/list');
         })
         .catch( function(err) {
           $scope.errors.other = err.message;
